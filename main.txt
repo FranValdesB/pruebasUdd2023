@@ -1,0 +1,222 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
+
+void main() => runApp(const MainApp());
+
+class MainApp extends StatelessWidget {
+  const MainApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: FlexThemeData.light(
+      scheme: FlexScheme.blue,
+      surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+      blendLevel: 7,
+      subThemesData: const FlexSubThemesData(
+        blendOnLevel: 10,
+        blendOnColors: false,
+        useTextTheme: true,
+        useM2StyleDividerInM3: true,
+        alignedDropdown: true,
+        useInputDecoratorThemeInDialogs: true,
+      ),
+      visualDensity: FlexColorScheme.comfortablePlatformDensity,
+      useMaterial3: true,
+      swapLegacyOnMaterial3: true,
+  
+      ),
+      darkTheme: FlexThemeData.dark(
+        scheme: FlexScheme.blue,
+        surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+        blendLevel: 13,
+        subThemesData: const FlexSubThemesData(
+        blendOnLevel: 20,
+        useTextTheme: true,
+        useM2StyleDividerInM3: true,
+        alignedDropdown: true,
+        useInputDecoratorThemeInDialogs: true,
+      ),
+      visualDensity: FlexColorScheme.comfortablePlatformDensity,
+      useMaterial3: true,
+      swapLegacyOnMaterial3: true,
+      ),
+
+      home: HomeApp(),
+    );
+  }
+}
+
+class HomeApp extends StatelessWidget {
+  const HomeApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            if (kDebugMode) {
+              print('Icono de menú presionado!');
+            }
+          },
+        ),
+        title: const Text('Valdes'),
+        actions: <Widget>[
+          Container(
+            margin:
+                const EdgeInsets.only(right: 0.0), // Añadir margen a la derecha
+            child: IconButton(
+              icon: const Icon(Icons.shopping_cart), 
+              onPressed: () {
+                if (kDebugMode) {
+                  print('Carrito presionado!');
+                }
+              },
+            ),
+          ),
+          const SizedBox(
+              width: 10), // Añadir un espacio entre los íconos, 10 pixeles
+          IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {
+              if (kDebugMode) {
+                print('More vert presionado!');
+              }
+            },
+          ),
+        ],
+      ),
+      body: ListView(
+        children: [
+          ListTile(
+            leading: const CircleAvatar(
+                  backgroundImage: AssetImage(
+                      'assets/imagen1.png'), // Agrega 'assets/' aquí
+                ),
+            title: const Text('Qué notebook elegir?'),
+            subtitle: const Text('Todo lo que debes saber antes de comprar un notebook.'),
+            trailing: IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('More vert del ítem 8 presionado!');
+                }
+              },
+            ),
+          ),
+          ListTile(
+            leading: const CircleAvatar(
+                  backgroundImage: AssetImage(
+                      'assets/imagen2.jpg'), // Agrega 'assets/' aquí
+                ),
+            title: const Text('Mantenimiento de notebook'),
+            subtitle: const Text('Limpieza y cambio de pasta térmica.'),
+            trailing: IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('More vert del ítem 8 presionado!');
+                }
+              },
+            ),
+          ),
+          ListTile(
+            leading: const CircleAvatar(
+                  backgroundImage: AssetImage(
+                      'assets/imagen3.jpg'), // Agrega 'assets/' aquí
+                ),
+            title: const Text('Qué RAM elegir?'),
+            subtitle: const Text('Todo lo que debes saber para elegir la mejor RAM.'),
+            trailing: IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('More vert del ítem 8 presionado!');
+                }
+              },
+            ),
+          ),
+          ListTile(
+            leading: const CircleAvatar(child: Text(''), backgroundColor: Colors.red),
+            title: const Text('Item 4'),
+            subtitle: const Text('Subtítulo del Item 4'),
+            trailing: IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('More vert del ítem 8 presionado!');
+                }
+              },
+            ),
+          ),
+          ListTile(
+            leading: const CircleAvatar(child: Text(''), backgroundColor: Colors.yellow),
+            title: const Text('Item 5'),
+            subtitle: const Text('Subtítulo del Item 5'),
+            trailing: IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('More vert del ítem 8 presionado!');
+                }
+              },
+            ),
+          ),
+          ListTile(
+            leading: const CircleAvatar(child: Text(''), backgroundColor: Colors.lightBlue),
+            title: const Text('Item 6'),
+            subtitle: const Text('Subtítulo del Item 6'),
+            trailing: IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('More vert del ítem 8 presionado!');
+                }
+              },
+            ),
+          ),
+          ListTile(
+            leading: const CircleAvatar(child: Text(''), backgroundColor: Colors.pink),
+            title: const Text('Item 7'),
+            subtitle: const Text('Subtítulo del Item 7'),
+            trailing: IconButton(
+              icon: const Icon(Icons.more_vert),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('More vert del ítem 8 presionado!');
+                }
+              },
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Theme.of(context).primaryColor, // Color primario
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.home, color: Colors.white),
+              onPressed: () {
+                if (kDebugMode) {
+                  print('Botón Home presionado!');
+                }
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.favorite, color: Colors.white), //cambiar este ícono
+              onPressed: () {
+                if (kDebugMode) {
+                  print('Botón AGregar presionado!');
+                }
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
